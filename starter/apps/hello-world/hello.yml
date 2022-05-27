@@ -26,7 +26,7 @@ spec:
           livenessProbe:
             httpGet:
               port: 9000
-              # path: /nginx_health
+              # path: /nginx_status
               path: /healthz
             initialDelaySeconds: 2
             periodSeconds: 2
