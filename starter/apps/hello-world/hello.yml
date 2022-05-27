@@ -19,13 +19,14 @@ spec:
         - image: etapau/hello-world:udacity
           imagePullPolicy: Always
           name: hello-world
+          resources:
           ports:
             - containerPort: 9000
               protocol: TCP
           livenessProbe:
             httpGet:
               port: 9000
-              path: /nginx_status
+              path: /healthz
             initialDelaySeconds: 2
             periodSeconds: 2
       nodeSelector:
