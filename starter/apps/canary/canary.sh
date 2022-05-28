@@ -2,7 +2,7 @@
 
 #Deployment Increments Math for 50%
 #  If odd, an additional pod will be deployed to ensure there's sufficient resources to run 50% load as we can't deploy half a pod.
-#  ie. If there are 5 pods, half of 5 is 2.5, we would scale up 3 of the new pod, scale down 2 of the old
+#  ie. If there are 5 pods, half of 5 is 2.5, we would scale both versions to 3 to achieve a 50/50 deployment.
 
 DEPLOYMENT_SIZE=$(kubectl get pods -n udacity | grep -c canary)
 #  bash cli math evaluation always rounds down.  5/2 = 2
