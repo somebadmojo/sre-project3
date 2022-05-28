@@ -34,4 +34,7 @@ jobs:
         run: |
           echo What is in this directory
           ls -la
+          echo Are awscli and kubectl installed?
+          aws --version
+          kubectl version
           
