@@ -16,7 +16,7 @@ function canary_deploy {
   NUM_OF_V2_PODS=$(kubectl get pods -n udacity | grep -c "canary-v2.*Running")
   echo "V2 PODS: $NUM_OF_V2_PODS"
 
-
+  #scale up the v2 deployment to target size
   kubectl scale deployment canary-v2 --replicas=$(($DEPLOY_TARGET_SIZE))
   # Check deployment rollout status every 1 second until complete.
   ATTEMPTS=0
@@ -39,3 +39,10 @@ sleep 1
   canary_deploy
 
 echo "50% deployment of canary-v2 successful"
+
+#verification 
+rm canary.txt
+touch canary.txt
+for i in {1..10}; do curl af6756d4b5c3d4dff862d35510050b65-245d118720c0c2c2.elb.us-east-2.amazonaws.com >> canary.txt; done
+
+kubectl get pods -n udacity
