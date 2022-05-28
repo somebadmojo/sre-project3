@@ -1,0 +1,14 @@
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/canary (master)
+$ kubectl get pods -o wide
+NAME                           READY   STATUS    RESTARTS   AGE   IP             NODE                                         NOMINATED NODE   READINESS GATES
+blue-8475cbdf46-9x6m8          1/1     Running   0          61m   10.100.3.201   ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+blue-8475cbdf46-ft2nb          1/1     Running   0          63m   10.100.3.99    ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+blue-8475cbdf46-tmbvw          1/1     Running   0          63m   10.100.3.231   ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+canary-v1-64598c676f-94mp4     1/1     Running   0          55m   10.100.1.81    ip-10-100-1-232.us-east-2.compute.internal   <none>           <none>
+canary-v1-64598c676f-sgtxb     1/1     Running   0          55m   10.100.3.155   ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+canary-v2-5dc9c56687-2h2sg     1/1     Running   0          27m   10.100.1.93    ip-10-100-1-232.us-east-2.compute.internal   <none>           <none>
+canary-v2-5dc9c56687-2tdr6     1/1     Running   0          26m   10.100.3.243   ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+hello-world-794458d64d-csz76   1/1     Running   0          63m   10.100.3.67    ip-10-100-3-133.us-east-2.compute.internal   <none>           <none>
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/canary (master)
+
