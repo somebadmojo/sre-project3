@@ -1,0 +1,55 @@
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/canary (master)
+$ sh ./canary.sh
+deployment.apps/canary-v2 created
+V1 PODS: 3
+V2 PODS: 1
+deployment.apps/canary-v2 scaled
+Waiting for deployment "canary-v2" rollout to finish: 1 of 2 updated replicas are available...
+Waiting for deployment "canary-v2" rollout to finish: 1 of 2 updated replicas are available...
+deployment "canary-v2" successfully rolled out
+Canary v2 deployment of 2 replicas successful!
+deployment.apps/canary-v1 scaled
+50% deployment of canary-v2 successful
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    189      0 --:--:-- --:--:-- --:--:--   190
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    247      0 --:--:-- --:--:-- --:--:--   250
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    239      0 --:--:-- --:--:-- --:--:--   241
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    238      0 --:--:-- --:--:-- --:--:--   238
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    233      0 --:--:-- --:--:-- --:--:--   235
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    209      0 --:--:-- --:--:-- --:--:--   211
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    244      0 --:--:-- --:--:-- --:--:--   247
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    235      0 --:--:-- --:--:-- --:--:--   235
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    242      0 --:--:-- --:--:-- --:--:--   244
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    42  100    42    0     0    235      0 --:--:-- --:--:-- --:--:--   237
+NAME                           READY   STATUS        RESTARTS   AGE
+blue-8475cbdf46-9x6m8          1/1     Running       0          35m
+blue-8475cbdf46-ft2nb          1/1     Running       0          36m
+blue-8475cbdf46-tmbvw          1/1     Running       0          36m
+canary-v1-64598c676f-94mp4     1/1     Running       0          28m
+canary-v1-64598c676f-s7ks5     0/1     Terminating   0          28m
+canary-v1-64598c676f-sgtxb     1/1     Running       0          28m
+canary-v2-5dc9c56687-2h2sg     1/1     Running       0          20s
+canary-v2-5dc9c56687-2tdr6     1/1     Running       0          13s
+hello-world-794458d64d-csz76   1/1     Running       0          36m
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/canary (master)
+
