@@ -37,4 +37,5 @@ jobs:
           echo Are awscli and kubectl installed?
           aws --version
           kubectl version
+          exit 0
           
