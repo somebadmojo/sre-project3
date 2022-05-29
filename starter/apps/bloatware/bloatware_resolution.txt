@@ -79,3 +79,42 @@ ip-10-100-2-122.us-east-2.compute.internal   Ready    <none>   24m   v1.21.12-ek
 ip-10-100-3-184.us-east-2.compute.internal   Ready    <none>   22m   v1.21.12-eks-5308cf7
 
 sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k get pods --all-namespaces
+NAMESPACE     NAME                                  READY   STATUS    RESTARTS   AGE
+kube-system   aws-node-j9z7p                        1/1     Running   0          11m
+kube-system   aws-node-stt45                        1/1     Running   0          29m
+kube-system   aws-node-xlwjp                        1/1     Running   0          27m
+kube-system   cluster-autoscaler-d8cc67649-5znld    1/1     Running   0          12m
+kube-system   coredns-f47955f89-f57kr               1/1     Running   0          12m
+kube-system   coredns-f47955f89-xz2rh               1/1     Running   0          12m
+kube-system   kube-proxy-dnv7h                      1/1     Running   0          29m
+kube-system   kube-proxy-kmtnc                      1/1     Running   0          12m
+kube-system   kube-proxy-tt4hh                      1/1     Running   0          27m
+udacity       bloaty-mcbloatface-58c98b98d8-2ghhp   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-2wrhb   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-477c8   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-4gvsd   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-6lvg9   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-7cxbm   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-7tfsm   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-84qdm   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-8pv8m   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-9ntwl   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-bmf8c   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-gxqx4   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-l6nwm   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-lsl5w   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-mgqrq   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-ncvzj   1/1     Running   0          7m24s
+udacity       bloaty-mcbloatface-58c98b98d8-x4q6d   1/1     Running   0          7m24s
+udacity       canary-v1-64598c676f-blpg8            1/1     Running   0          12m
+udacity       canary-v1-64598c676f-w7hnt            1/1     Running   0          12m
+udacity       canary-v2-5dc9c56687-t9pxv            1/1     Running   0          12m
+udacity       canary-v2-5dc9c56687-xc2jj            1/1     Running   0          12m
+udacity       green-5cdd96c9b4-5lbzt                1/1     Running   0          29m
+udacity       green-5cdd96c9b4-88vjs                1/1     Running   0          12m
+udacity       green-5cdd96c9b4-mpp5k                1/1     Running   0          12m
+udacity       hello-world-794458d64d-xtzjg          1/1     Running   0          29m
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+
