@@ -1,0 +1,81 @@
+$ k get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+canary-v1-64598c676f-blpg8     1/1     Running   0          4m37s
+canary-v1-64598c676f-w7hnt     1/1     Running   0          4m37s
+canary-v2-5dc9c56687-t9pxv     1/1     Running   0          4m37s
+canary-v2-5dc9c56687-xc2jj     1/1     Running   0          4m36s
+green-5cdd96c9b4-5lbzt         1/1     Running   0          22m
+green-5cdd96c9b4-88vjs         1/1     Running   0          4m37s
+green-5cdd96c9b4-mpp5k         1/1     Running   0          4m37s
+hello-world-794458d64d-xtzjg   1/1     Running   0          22m
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k apply -f bloatware.yml
+deployment.apps/bloaty-mcbloatface created
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k get pods
+NAME                                  READY   STATUS              RESTARTS   AGE
+bloaty-mcbloatface-58c98b98d8-2ghhp   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-2wrhb   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-477c8   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-4gvsd   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-6lvg9   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-7cxbm   0/1     ContainerCreating   0          9s
+bloaty-mcbloatface-58c98b98d8-7tfsm   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-84qdm   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-8pv8m   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-9ntwl   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-bmf8c   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-gxqx4   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-l6nwm   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-lsl5w   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-mgqrq   1/1     Running             0          9s
+bloaty-mcbloatface-58c98b98d8-ncvzj   0/1     ContainerCreating   0          9s
+bloaty-mcbloatface-58c98b98d8-x4q6d   1/1     Running             0          9s
+canary-v1-64598c676f-blpg8            1/1     Running             0          4m59s
+canary-v1-64598c676f-w7hnt            1/1     Running             0          4m59s
+canary-v2-5dc9c56687-t9pxv            1/1     Running             0          4m59s
+canary-v2-5dc9c56687-xc2jj            1/1     Running             0          4m58s
+green-5cdd96c9b4-5lbzt                1/1     Running             0          22m
+green-5cdd96c9b4-88vjs                1/1     Running             0          4m59s
+green-5cdd96c9b4-mpp5k                1/1     Running             0          4m59s
+hello-world-794458d64d-xtzjg          1/1     Running             0          22m
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+bloaty-mcbloatface-58c98b98d8-2ghhp   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-2wrhb   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-477c8   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-4gvsd   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-6lvg9   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-7cxbm   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-7tfsm   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-84qdm   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-8pv8m   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-9ntwl   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-bmf8c   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-gxqx4   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-l6nwm   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-lsl5w   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-mgqrq   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-ncvzj   1/1     Running   0          17s
+bloaty-mcbloatface-58c98b98d8-x4q6d   1/1     Running   0          17s
+canary-v1-64598c676f-blpg8            1/1     Running   0          5m7s
+canary-v1-64598c676f-w7hnt            1/1     Running   0          5m7s
+canary-v2-5dc9c56687-t9pxv            1/1     Running   0          5m7s
+canary-v2-5dc9c56687-xc2jj            1/1     Running   0          5m6s
+green-5cdd96c9b4-5lbzt                1/1     Running   0          22m
+green-5cdd96c9b4-88vjs                1/1     Running   0          5m7s
+green-5cdd96c9b4-mpp5k                1/1     Running   0          5m7s
+hello-world-794458d64d-xtzjg          1/1     Running   0          22m
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k get nodes
+NAME                                         STATUS   ROLES    AGE   VERSION
+ip-10-100-1-76.us-east-2.compute.internal    Ready    <none>   20m   v1.21.12-eks-5308cf7
+ip-10-100-2-122.us-east-2.compute.internal   Ready    <none>   24m   v1.21.12-eks-5308cf7
+ip-10-100-3-184.us-east-2.compute.internal   Ready    <none>   22m   v1.21.12-eks-5308cf7
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
