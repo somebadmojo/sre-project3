@@ -1,0 +1,122 @@
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ ls
+bloatware.yml
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k apply -f bloatware.yml
+deployment.apps/bloaty-mcbloatface created
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+bloaty-mcbloatface-58c98b98d8-26w82   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-4d2wd   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-6b6c2   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-7cr54   0/1     Pending   0          26s    <<<<<<<<<<<<<<<<  5 pods stayed in pending
+bloaty-mcbloatface-58c98b98d8-9g97c   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-dxmfp   0/1     Pending   0          26s
+bloaty-mcbloatface-58c98b98d8-fp5mm   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-ndfw2   0/1     Pending   0          26s
+bloaty-mcbloatface-58c98b98d8-p6tt8   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-pvc92   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-qf2qc   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-rpbnj   0/1     Pending   0          26s
+bloaty-mcbloatface-58c98b98d8-rqdcf   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-rwkx5   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-sgcqv   1/1     Running   0          26s
+bloaty-mcbloatface-58c98b98d8-wmxfr   0/1     Pending   0          26s
+bloaty-mcbloatface-58c98b98d8-zg6f5   1/1     Running   0          26s
+canary-v1-64598c676f-9rh82            1/1     Running   0          84m
+canary-v1-64598c676f-kbxzh            1/1     Running   0          84m
+canary-v2-5dc9c56687-7446j            1/1     Running   0          84m
+canary-v2-5dc9c56687-ns84f            1/1     Running   0          84m
+green-5cdd96c9b4-c58s2                1/1     Running   0          84m
+green-5cdd96c9b4-th6k2                1/1     Running   0          82m
+green-5cdd96c9b4-wxqtc                1/1     Running   0          82m
+hello-world-794458d64d-mxd8n          1/1     Running   0          84m
+---------------------------------------------------------------------------------------------------------------
+
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ k describe pod bloaty-mcbloatface-58c98b98d8-7cr54
+Name:           bloaty-mcbloatface-58c98b98d8-7cr54
+Namespace:      udacity
+Priority:       0
+Node:           <none>
+Labels:         app=bloaty-mcbloatface
+                pod-template-hash=58c98b98d8
+Annotations:    kubernetes.io/psp: eks.privileged
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/bloaty-mcbloatface-58c98b98d8
+Containers:
+  nginx:
+    Image:      nginx
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Requests:
+      cpu:        250m
+      memory:     200Mi
+    Readiness:    http-get http://:80/ delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-sbr22 (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False
+Volumes:
+  kube-api-access-sbr22:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                From               Message
+  ----     ------            ----               ----               -------                           <<<< insufficient CPU
+  Warning  FailedScheduling  37s (x2 over 39s)  default-scheduler  0/2 nodes are available: 1 Insufficient cpu, 1 Too many pods.
+
+----------------------------------------------------------------------------------------------------------------
+sam@DESKTOP-8GJD9RF MINGW64 ~/SREClass/sre-project3/starter/apps/bloatware (master)
+$ cat bloatware.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bloaty-mcbloatface
+  namespace: udacity
+spec:
+  replicas: 17
+  selector:
+    matchLabels:
+      app: bloaty-mcbloatface
+  minReadySeconds: 2 # how long it should wait until it creates the next pod.
+  template:
+    metadata:
+      labels:
+        app: bloaty-mcbloatface
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "250m"
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 # specifies the maximum number (or percentage) of pods above the specified number of replicas.
+      maxUnavailable: 1 # declares the maximum number (or percentage) of unavailable pods during the update.
+
+----------------------------------------------------------------------------------------------------------------
+
